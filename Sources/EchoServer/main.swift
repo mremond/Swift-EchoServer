@@ -45,11 +45,11 @@ let bootstrap = ServerBootstrap(group: group)
         .serverChannelOption(ChannelOptions.backlog, value: 256)
         .serverChannelOption(ChannelOptions.socket(SocketOptionLevel(SOL_SOCKET), SO_REUSEADDR), value: 1)
 
-        // Handler Pipeline: handlers that are process events from accepted Channels
+        // Handler Pipeline: handlers that are processing events from accepted Channels
         // To demonstrate that we can have several reusable handlers we start with a Swift-NIO default
-        // handler that limit the speed at which we read from client, if we cannot keep up with the
+        // handler that limits the speed at which we read from the client if we cannot keep up with the
         // processing through EchoHandler.
-        // This is to protect the server from overloading.
+        // This is to protect the server from overload.
         .childChannelInitializer { channel in
             channel.pipeline.add(handler: BackPressureHandler()).then { v in
                 channel.pipeline.add(handler: EchoHandler())
