@@ -1,3 +1,3 @@
 # EchoServer
 
-A description of this package.
+Swift-NIO EchoServer example.
