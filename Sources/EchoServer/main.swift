@@ -36,7 +36,7 @@ private final class EchoHandler: ChannelInboundHandler {
     }
 }
 
-// Create a multi thread even loop to use all the system core for the processing
+// Create a multi thread event loop to use all the system core for the processing
 let group = MultiThreadedEventLoopGroup(numThreads: System.coreCount)
 
 // Set up the server using a Bootstrap
